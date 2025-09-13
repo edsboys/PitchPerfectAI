@@ -3,7 +3,7 @@
 </div>
 <div align="center">
   <h3>
-    <a href="https://edsboys.github.io/PitchPerfectAI/">
+    <a href="[https://edsboys.github.io/PitchPerfectAI/](https://edsboys.github.io/PitchPerfectAI/)">
       🚀 View the Live Demo Here! 🚀
     </a>
   </h3>
