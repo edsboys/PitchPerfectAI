@@ -2,7 +2,7 @@
   "name": "pitch-perfect-ai",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://[your-github-edsboys].github.io/PitchPerfectAI",
+  "homepage": "https://edsboys.github.io/PitchPerfectAI",
   "type": "module",
   "scripts": {
     "dev": "vite",
