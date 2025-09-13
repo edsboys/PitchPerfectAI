@@ -1,30 +1,21 @@
-import React, { useState, useEffect, memo } from 'react';
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 
-function DarkModeToggle() {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const savedMode = localStorage.getItem('darkMode');
-    if (savedMode !== null) return savedMode === 'true';
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-  });
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark-mode');
-    } else {
-      document.documentElement.classList.remove('dark-mode');
-    }
-    localStorage.setItem('darkMode', isDarkMode);
-  }, [isDarkMode]);
-
+const DarkModeToggle = memo(function DarkModeToggle({ isDarkMode, setIsDarkMode }) {
   return (
-    <button
-      className="dark-mode-toggle"
+    <button 
+      className="dark-mode-toggle" 
       onClick={() => setIsDarkMode(!isDarkMode)}
       aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
     >
       {isDarkMode ? '☀️' : '🌙'}
     </button>
   );
-}
+});
 
-export default memo(DarkModeToggle);
+DarkModeToggle.propTypes = {
+  isDarkMode: PropTypes.bool.isRequired,
+  setIsDarkMode: PropTypes.func.isRequired,
+};
+
+export default DarkModeToggle;
