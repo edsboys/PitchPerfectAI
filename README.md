@@ -1,9 +1,13 @@
 <div align="center">
-  ![Pitch Perfect AI Logo](src/assets/logo.png)
+  <img src="https://edsboys.github.io/PitchPerfectAI/assets/Logo-CjevTupB.png" alt="Pitch Perfect AI Logo" width="200"/>
 </div>
-
-<h1 align="center">Pitch Perfect AI</h1>
-
+<div align="center">
+  <h3>
+    <a href="https://edsboys.github.io/PitchPerfectAI/">
+      🚀 View the Live Demo Here! 🚀
+    </a>
+  </h3>
+</div>
 <div align="center">
   <strong>Your personal AI-powered public speaking coach.</strong>
   <br />
