@@ -25,3 +25,16 @@ This document lists all **third-party repositories, modules, libraries, framewor
 | Name | Source | Usage |
 |---|---|---|
 | N/A | No datasets were used in this project. | N/A |
+
+---
+
+## 🎓 Learning Resources & Inspiration
+| Resource | Link | Author(s) | Influence |
+|---|---|---|---|
+| React Documentation | https://react.dev | Meta | Component architecture patterns. |
+| CSS-Tricks | https://css-tricks.com | Chris Coyier | CSS Grid and modern styling techniques. |
+
+## 🏆 Special Thanks
+- South African Intervarsity Hackathon 2025 organizers
+- Open source community for excellent documentation
+- Web standards organizations (W3C, WHATWG) for browser APIs

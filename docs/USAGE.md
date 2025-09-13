@@ -20,6 +20,39 @@ The application is designed to be simple and intuitive.
 5.  **Review the Analysis:** A loading spinner will appear for a few moments. Afterwards, the AI's detailed analysis of your speech—including scores and feedback—will be displayed.
 6.  **(Optional) Toggle Dark Mode:** Use the ☀️/🌙 icon in the top right corner to switch between light and dark themes.
 
+## 📊 What to Expect
+
+**Typical Analysis Includes:**
+- **Clarity Score:** 1-10 rating based on coherence and articulation
+- **Filler Word Count:** Detection of "um," "uh," "like," etc.
+- **Speaking Pace:** Words per minute with optimal range guidance
+- **Personalized Feedback:** Specific strengths and improvement areas
+- **Learning Resources:** YouTube search suggestions for skill development
+
+**Badge System:**
+- 🏆 **Clarity Champion:** Score 8+ on clarity
+- 🗣️ **Eloquent Speaker:** Use ≤2 filler words  
+- ⏱️ **Pace Pro:** Maintain optimal 120-150 WPM
+
+## 💡 Tips for Best Results
+
+**Preparation:**
+- Find a quiet environment
+- Use a good quality microphone or headset
+- Test your microphone before starting
+
+**During Recording:**
+- Speak naturally and clearly
+- Maintain normal conversational pace
+- Record for 30+ seconds for detailed analysis
+- Don't worry about perfection - practice makes perfect!
+
+**After Analysis:**
+- Review all feedback sections
+- Focus on one improvement area at a time
+- Use the YouTube resources for targeted learning
+- Practice regularly to track improvement
+
 ## 🎥 Demo
 Check out the demo files located in the `demo/` folder of this repository:
 - **[Demo Video](../demo/[your-video-file.mp4])**

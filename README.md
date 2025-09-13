@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="src/assets/logo.png" alt="Pitch Perfect AI Logo" width="400"/>
+  ![Pitch Perfect AI Logo](src/assets/logo.png)
 </div>
 
 <h1 align="center">Pitch Perfect AI</h1>

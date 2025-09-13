@@ -16,35 +16,49 @@ To run this project, you will need the following installed on your system:
 
 ## ⚙️ Installation
 
-1.  **Clone the repository**
-    Open your terminal and run the following commands:
-    ```bash
-    git clone [https://docs.github.com/en/get-started/using-github/connecting-to-github](https://docs.github.com/en/get-started/using-github/connecting-to-github)
-    cd PitchPerfectAI
-    ```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/edsboys/PitchPerfectAI.git
+   cd PitchPerfectAI
+   ```
 
-2.  **Install dependencies**
-    This command will install all the necessary packages for the project, including React.
-    ```bash
-    npm install
-    ```
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-3.  **Configure Environment Variables**
-    This project requires a Google Gemini API key. As per the hackathon guidelines, secrets must be kept out of the repository.
+3. **Get your Gemini API Key**
+   * Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
+   * Click "Create API Key"
+   * Copy the generated key
 
-    * Create a new file in the root of the project named `.env`.
-    * Open the `.env` file and add your API key in the following format, replacing `YOUR_API_KEY_HERE` with your actual key:
-    ```
-    VITE_GEMINI_API_KEY=YOUR_API_KEY_HERE
-    ```
+4. **Configure Environment Variables**
+   * Create a `.env` file in the project root:
+   ```bash
+   echo "VITE_GEMINI_API_KEY=your_actual_key_here" > .env
+   ```
 
 ## ▶️ Running the Project
 
-1.  **Start the development server**
-    Once all dependencies are installed and your environment variables are set, run the following command from the project's root directory:
-    ```bash
-    npm run dev
-    ```
+1. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-2.  **Open the application**
-    The terminal will display a local URL (usually `http://localhost:5173/`). Open this URL in your web browser to view and interact with the application.
+2. **Open the application**
+   * Navigate to `http://localhost:5173`
+   * Allow microphone permissions when prompted
+
+## 🔧 Troubleshooting
+
+**Microphone not working?**
+- Ensure browser has microphone permissions
+- Chrome/Edge work best for Web Speech API
+
+**API errors?**
+- Verify your API key is correct in `.env`
+- Check your internet connection
+
+**Build errors?**
+- Try deleting `node_modules` and running `npm install` again
+- Ensure Node.js version is 18+

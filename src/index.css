@@ -1,152 +1,198 @@
-/* DEFINE THE COLOR PALETTE FOR BOTH MODES */
+/* ============================================================================
+   PITCH PERFECT AI - MAIN STYLESHEET
+   ============================================================================
+   This file contains all the styles for the Pitch Perfect AI application.
+   It uses CSS custom properties (variables) for consistent theming and 
+   supports both light and dark modes.
+   ============================================================================ */
+
+/* ============================================================================
+   COLOR PALETTE & THEME VARIABLES
+   ============================================================================ */
+
+/* Define the color palette for both light and dark modes */
 :root {
-  /* Light mode colors (default) */
-  --bg-color: #f0f2f5;
-  --card-bg: #ffffff;
-  --text-color: #1c1e21;
-  --text-secondary: #606770;
-  --border-color: #e0e0e0;
-  --input-bg: #f9f9f9;
-  --primary-color: #007bff;
-  --primary-hover: #0056b3;
-  --danger-color: #dc3545;
-  --danger-hover: #a72836;
-  --positive-bg: #e9f5e9;
-  --positive-border: #4caf50;
-  --improvement-bg: #fff4e5;
-  --improvement-border: #ff9800;
-  --mode-button-bg: #e9ecef;
-  --mode-button-color: #495057;
-  --mode-button-border: #dee2e6;
-  --mode-button-hover: #dee2e6;
-  --shadow-color: rgba(0, 0, 0, 0.08);
-
-  /* Add these to your existing variables */
-  --success-color: #28a745;
-  --success-bg: #d4edda;
-  --warning-color: #ffc107;
-  --warning-bg: #fff3cd;
-  --info-color: #17a2b8;
-  --info-bg: #d1ecf1;
+  /* Light mode colors (default theme) */
+  --bg-color: #f0f2f5;              /* Main background color */
+  --card-bg: #ffffff;               /* Card and container backgrounds */
+  --text-color: #1c1e21;            /* Primary text color */
+  --text-secondary: #606770;        /* Secondary text (labels, hints) */
+  --border-color: #e0e0e0;          /* Borders and dividers */
+  --input-bg: #f9f9f9;             /* Input field backgrounds */
   
-  /* Animation timings */
-  --transition-fast: 0.15s;
-  --transition-normal: 0.3s;
-  --transition-slow: 0.5s;
+  /* Primary colors for buttons and highlights */
+  --primary-color: #007bff;         /* Main brand color (blue) */
+  --primary-hover: #0056b3;         /* Darker blue for hover states */
+  
+  /* Status colors for feedback and alerts */
+  --danger-color: #dc3545;          /* Error and stop button color */
+  --danger-hover: #a72836;          /* Darker red for hover states */
+  --success-color: #28a745;         /* Success messages */
+  --success-bg: #d4edda;           /* Success background */
+  --warning-color: #ffc107;         /* Warning messages */
+  --warning-bg: #fff3cd;           /* Warning background */
+  --info-color: #17a2b8;           /* Info messages */
+  --info-bg: #d1ecf1;             /* Info background */
+  
+  /* Feedback card backgrounds */
+  --positive-bg: #e9f5e9;          /* Positive feedback background */
+  --positive-border: #4caf50;       /* Green border for positive feedback */
+  --improvement-bg: #fff4e5;        /* Improvement feedback background */
+  --improvement-border: #ff9800;    /* Orange border for improvement feedback */
+  
+  /* Mode selection button colors */
+  --mode-button-bg: #e9ecef;        /* Default mode button background */
+  --mode-button-color: #495057;     /* Mode button text color */
+  --mode-button-border: #dee2e6;    /* Mode button border */
+  --mode-button-hover: #dee2e6;     /* Mode button hover background */
+  
+  /* Shadow and visual effects */
+  --shadow-color: rgba(0, 0, 0, 0.08); /* Subtle shadow for cards */
+  
+  /* Animation timing constants */
+  --transition-fast: 0.15s;         /* Quick transitions */
+  --transition-normal: 0.3s;        /* Standard transitions */
+  --transition-slow: 0.5s;          /* Slow transitions for emphasis */
 }
 
-/* Dark mode colors */
+/* Dark mode color overrides */
 .dark-mode {
-  --bg-color: #121212;
-  --card-bg: #1e1e1e;
-  --text-color: #e4e6eb;
-  --text-secondary: #b0b3b8;
-  --border-color: #3a3b3c;
-  --input-bg: #242526;
-  --primary-color: #4295ef;
-  --primary-hover: #2d7dd2;
-  --danger-color: #e05260;
-  --danger-hover: #c43e4a;
-  --positive-bg: #1e361f;
-  --positive-border: #4caf50;
-  --improvement-bg: #3c2f20;
-  --improvement-border: #ff9800;
-  --mode-button-bg: #3a3b3c;
-  --mode-button-color: #e4e6eb;
-  --mode-button-border: #3a3b3c;
-  --mode-button-hover: #525354;
+  --bg-color: #121212;              /* Dark background */
+  --card-bg: #1e1e1e;              /* Dark card backgrounds */
+  --text-color: #e4e6eb;           /* Light text on dark background */
+  --text-secondary: #b0b3b8;       /* Dimmed text for secondary content */
+  --border-color: #3a3b3c;         /* Dark borders */
+  --input-bg: #242526;             /* Dark input backgrounds */
+  
+  /* Adjusted primary colors for dark mode */
+  --primary-color: #4295ef;        /* Brighter blue for visibility */
+  --primary-hover: #2d7dd2;        /* Hover state for dark mode */
+  
+  /* Dark mode status colors */
+  --danger-color: #e05260;         /* Softer red for dark backgrounds */
+  --danger-hover: #c43e4a;         /* Darker red for hover */
+  
+  /* Dark mode feedback backgrounds */
+  --positive-bg: #1e361f;          /* Dark green background */
+  --improvement-bg: #3c2f20;       /* Dark orange background */
+  --negative-bg: #2d1f1f;          /* Dark red background for negative feedback */
+  
+  /* Dark mode button colors */
+  --mode-button-bg: #3a3b3c;       /* Dark button background */
+  --mode-button-color: #e4e6eb;    /* Light text on dark buttons */
+  --mode-button-border: #3a3b3c;   /* Dark button border */
+  --mode-button-hover: #525354;    /* Lighter hover state */
+  
+  /* Enhanced shadow for dark mode */
   --shadow-color: rgba(0, 0, 0, 0.3);
-  --negative-bg: #2d1f1f;
-
-  /* Add dark mode versions */
-  --success-bg: #1e3a1e;
-  --warning-bg: #3d3a1e;
-  --info-bg: #1e2e3a;
+  
+  /* Dark mode versions of status backgrounds */
+  --success-bg: #1e3a1e;           /* Dark success background */
+  --warning-bg: #3d3a1e;           /* Dark warning background */
+  --info-bg: #1e2e3a;             /* Dark info background */
 }
 
-/* GLOBAL STYLES USING THE VARIABLES */
+/* ============================================================================
+   GLOBAL STYLES & LAYOUT
+   ============================================================================ */
+
+/* Base body styling with system font stack */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: var(--bg-color);   /* Uses theme variable */
+  color: var(--text-color);            /* Uses theme variable */
   margin: 0;
   padding: 20px;
-  display: flex;
+  display: flex;                       /* Center content horizontally */
   justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  align-items: flex-start;             /* Align to top */
+  min-height: 100vh;                   /* Full viewport height */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transitions */
 }
 
-/* LAYOUT & CONTAINERS */
+/* Main application container */
 .app-container {
   width: 100%;
-  max-width: 700px;
+  max-width: 700px;                    /* Limit width for readability */
   margin: 20px;
   padding: 2rem;
-  background-color: var(--card-bg);
-  border-radius: 12px;
-  box-shadow: 0 6px 20px var(--shadow-color);
-  position: relative; /* For positioning the dark mode toggle */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--card-bg);    /* Card background */
+  border-radius: 12px;                 /* Rounded corners */
+  box-shadow: 0 6px 20px var(--shadow-color); /* Elevated appearance */
+  position: relative;                  /* For positioning dark mode toggle */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Theme transitions */
 }
 
+/* Header section styling */
 header {
   text-align: center;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color); /* Separator line */
   padding-bottom: 20px;
   margin-bottom: 30px;
 }
 
+/* Main content area - stacked layout */
 main {
   display: flex;
-  flex-direction: column;
-  gap: 40px;
+  flex-direction: column;              /* Stack components vertically */
+  gap: 40px;                          /* Space between sections */
 }
 
-/* COMPONENTS */
+/* ============================================================================
+   COMPONENT STYLES
+   ============================================================================ */
+
+/* Application logo styling */
 .app-logo {
-  max-width: 300px;
+  max-width: 300px;                   /* Responsive logo size */
   margin-bottom: 1rem;
 }
 
+/* Dark mode toggle button (top-right corner) */
 .dark-mode-toggle {
   position: absolute;
   top: 20px;
   right: 20px;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.5rem;                  /* Emoji size */
   cursor: pointer;
   padding: 5px;
-  border-radius: 50%;
-  background-color: var(--input-bg);
+  border-radius: 50%;                 /* Circular button */
+  background-color: var(--input-bg);  /* Subtle background */
   color: var(--text-color);
-  box-shadow: 0 2px 5px var(--shadow-color);
-  transition: transform 0.2s, background-color 0.3s ease;
+  box-shadow: 0 2px 5px var(--shadow-color); /* Slight elevation */
+  transition: transform 0.2s, background-color 0.3s ease; /* Hover and theme transitions */
 }
 
+/* Dark mode toggle hover effect */
 .dark-mode-toggle:hover {
-  transform: scale(1.1);
+  transform: scale(1.1);              /* Slight grow on hover */
 }
 
+/* Section headings */
 .recorder-container h2, .analysis-container h2 {
   margin-top: 0;
   font-size: 1.5rem;
-  color: var(--text-color); /* Uses variable */
+  color: var(--text-color);           /* Uses theme variable */
 }
 
+/* Live transcript display box */
 .transcript-box {
   border: 1px solid var(--border-color);
   padding: 15px;
-  min-height: 120px;
+  min-height: 120px;                  /* Minimum height for empty state */
   border-radius: 6px;
-  background-color: var(--input-bg);
-  line-height: 1.5;
-  color: var(--text-secondary); /* Uses variable */
+  background-color: var(--input-bg);  /* Subtle background */
+  line-height: 1.5;                   /* Readable line spacing */
+  color: var(--text-secondary);       /* Secondary text color */
 }
 
-/* BUTTONS */
+/* ============================================================================
+   BUTTON STYLES
+   ============================================================================ */
+
+/* Base record button styling */
 .record-button {
   padding: 12px 24px;
   font-size: 1rem;
@@ -155,19 +201,23 @@ main {
   color: white;
   border: none;
   border-radius: 6px;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition: background-color 0.2s ease, transform 0.1s ease; /* Smooth interactions */
 }
 
+/* Button press effect */
 .record-button:active {
-  transform: scale(0.98);
+  transform: scale(0.98);             /* Slight shrink when pressed */
 }
 
+/* Start recording button (blue) */
 .start-button {
   background-color: var(--primary-color);
 }
 .start-button:hover {
   background-color: var(--primary-hover);
 }
+
+/* Stop recording button (red) */
 .stop-button {
   background-color: var(--danger-color);
 }
@@ -175,111 +225,137 @@ main {
   background-color: var(--danger-hover);
 }
 
+/* Pulsing animation for active recording */
 .stop-button.recording {
   animation: pulse 1.5s infinite;
 }
 
+/* Mode selection container */
 .modes-container {
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  justify-content: center;            /* Center the mode buttons */
+  gap: 10px;                         /* Space between buttons */
   margin-bottom: 20px;
 }
 
+/* Individual mode selection buttons */
 .mode-button {
   padding: 8px 16px;
   font-size: 0.9rem;
   background-color: var(--mode-button-bg);
   color: var(--mode-button-color);
   border: 1px solid var(--mode-button-border);
-  border-radius: 20px;
+  border-radius: 20px;               /* Pill-shaped buttons */
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease;         /* Smooth hover transitions */
 }
 
+/* Mode button hover effect */
 .mode-button:hover {
   background-color: var(--mode-button-hover);
 }
 
+/* Active/selected mode button */
 .mode-button.active {
   background-color: var(--primary-color);
   color: white;
   border-color: var(--primary-color);
-  font-weight: bold;
+  font-weight: bold;                 /* Emphasize selection */
 }
 
+/* Disabled mode button (during recording) */
 .mode-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+  opacity: 0.6;                      /* Faded appearance */
+  cursor: not-allowed;               /* Indicate non-interactive */
 }
 
-/* Add focus states */
+/* ============================================================================
+   ACCESSIBILITY - FOCUS STATES
+   ============================================================================ */
+
+/* Focus indicators for keyboard navigation */
 .record-button:focus,
 .mode-button:focus,
 .dark-mode-toggle:focus {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
+  outline: 2px solid var(--primary-color); /* Visible focus ring */
+  outline-offset: 2px;               /* Space around element */
 }
 
+/* Enhanced focus for mode buttons */
 .mode-button:focus {
-  box-shadow: 0 0 0 3px rgba(66, 149, 239, 0.3);
+  box-shadow: 0 0 0 3px rgba(66, 149, 239, 0.3); /* Glow effect */
 }
 
-/* ANALYSIS CARDS */
+/* ============================================================================
+   ANALYSIS RESULTS DISPLAY
+   ============================================================================ */
+
+/* Grid layout for metric cards */
 .results-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive columns */
   gap: 20px;
   text-align: center;
   margin-bottom: 20px;
 }
 
+/* Base styling for metric and feedback cards */
 .metric-card, .feedback-card {
   background-color: var(--card-bg);
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px var(--shadow-color);
+  box-shadow: 0 2px 4px var(--shadow-color); /* Subtle elevation */
   border: 1px solid var(--border-color);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Theme transitions */
 }
 
+/* Card headings */
 .metric-card h4, .feedback-card h4 {
   margin: 0 0 10px 0;
-  color: var(--text-secondary);
+  color: var(--text-secondary);       /* Subtle heading color */
 }
 
+/* Large metric values (scores, counts) */
 .metric-value {
   font-size: 2rem;
   font-weight: bold;
-  color: var(--primary-color);
+  color: var(--primary-color);        /* Highlight important numbers */
   margin: 0;
 }
 
+/* Left-aligned feedback cards */
 .feedback-card {
-  text-align: left;
+  text-align: left;                   /* Better for reading paragraphs */
 }
 
+/* Positive feedback styling (green accent) */
 .positive-feedback {
   background-color: var(--positive-bg);
-  border-left: 5px solid var(--positive-border);
+  border-left: 5px solid var(--positive-border); /* Colored accent bar */
 }
 
+/* Improvement feedback styling (orange accent) */
 .improvement-feedback {
   background-color: var(--improvement-bg);
   border-left: 5px solid var(--improvement-border);
 }
 
-/* Add after the improvement-feedback section */
+/* Negative feedback styling (red accent) */
 .negative-feedback {
-  background-color: #ffeaea;
+  background-color: #ffeaea;          /* Light red background */
   border-left: 5px solid var(--danger-color);
 }
 
+/* Dark mode negative feedback */
 .dark-mode .negative-feedback {
   background-color: var(--negative-bg);
 }
 
-/* LOADING & PLACEHOLDER */
+/* ============================================================================
+   LOADING STATES & MESSAGES
+   ============================================================================ */
+
+/* Common styling for message containers */
 .loading-message, .placeholder-message, .error-message {
   text-align: center;
   color: var(--text-secondary);
@@ -288,15 +364,13 @@ main {
   border-radius: 8px;
 }
 
+/* Error message specific styling */
 .error-message {
-  text-align: center;
-  color: var(--danger-color);
-  padding: 40px;
-  background-color: var(--input-bg);
-  border-radius: 8px;
-  border: 2px solid var(--danger-color);
+  color: var(--danger-color);         /* Red text for errors */
+  border: 2px solid var(--danger-color); /* Red border for emphasis */
 }
 
+/* Error message buttons */
 .error-message button {
   margin-top: 15px;
   padding: 10px 20px;
@@ -309,10 +383,12 @@ main {
   transition: background-color 0.2s ease;
 }
 
+/* Error button hover effect */
 .error-message button:hover {
   background-color: var(--danger-hover);
 }
 
+/* Alternative error button style (outline) */
 .error-message button {
   margin-left: 10px;
   padding: 5px 10px;
@@ -324,122 +400,74 @@ main {
   font-size: 0.8rem;
 }
 
+/* Alternative error button hover */
 .error-message button:hover {
   background-color: var(--danger-color);
   color: white;
 }
 
-/* ANIMATIONS */
+/* ============================================================================
+   ANIMATIONS & VISUAL EFFECTS
+   ============================================================================ */
+
+/* Pulsing animation for recording indicators */
 @keyframes pulse {
   0% { opacity: 1; }
-  50% { opacity: 0.7; }
-  100% { opacity: 1; }
+  50% { opacity: 0.7; }               /* Fade to 70% opacity */
+  100% { opacity: 1; }                /* Back to full opacity */
 }
 
-/* DATA VISUALIZATION */
+/* Spinning animation for loading spinner */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================================================
+   DATA VISUALIZATION
+   ============================================================================ */
+
+/* Progress bar container */
 .metric-bar {
-  background-color: var(--border-color);
+  background-color: var(--border-color); /* Gray background */
   border-radius: 4px;
   height: 8px;
-  overflow: hidden;
+  overflow: hidden;                   /* Hide overflow for rounded corners */
   margin-top: 10px;
 }
 
+/* Progress bar fill */
 .metric-fill {
   background-color: var(--primary-color);
   height: 100%;
   border-radius: 4px;
-  transition: width 0.5s ease-in-out;
-  will-change: width;
+  transition: width 0.5s ease-in-out; /* Smooth progress animation */
+  will-change: width;                 /* Optimize for animation */
 }
 
-/* Spinner Animation */
+/* Loading spinner */
 .spinner {
   width: 40px;
   height: 40px;
   border: 4px solid var(--border-color);
-  border-top-color: var(--primary-color);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 0 auto 15px auto;
-  will-change: transform; /* Optimize for animation */
+  border-top-color: var(--primary-color); /* Colored top for spinning effect */
+  border-radius: 50%;                 /* Perfect circle */
+  animation: spin 1s linear infinite; /* Continuous spinning */
+  margin: 0 auto 15px auto;          /* Center horizontally */
+  will-change: transform;             /* Optimize for animation */
 }
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* ============================================================================
+   RECORDING STATUS INDICATORS
+   ============================================================================ */
 
-/* Add responsive design improvements */
-@media (max-width: 768px) {
-  body {
-    padding: 10px;
-  }
-  
-  .app-container {
-    margin: 10px;
-    padding: 1.5rem;
-  }
-  
-  .dark-mode-toggle {
-    top: 15px;
-    right: 15px;
-    font-size: 1.3rem;
-  }
-  
-  .results-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-  
-  .modes-container {
-    flex-wrap: wrap;
-  }
-  
-  .mode-button {
-    flex: 1;
-    min-width: 120px;
-  }
-}
-
-@media (max-width: 480px) {
-  .app-container {
-    padding: 1rem;
-  }
-  
-  .metric-value {
-    font-size: 1.5rem;
-  }
-  
-  .record-button {
-    width: 100%;
-    padding: 15px;
-  }
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* Add reduced motion support for accessibility */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
+/* Recording indicator emoji */
 .recording-indicator {
   margin-right: 8px;
-  animation: pulse 1s infinite;
+  animation: pulse 1s infinite;       /* Pulsing red dot */
 }
 
+/* Recording status message */
 .recording-status {
   display: flex;
   align-items: center;
@@ -449,23 +477,150 @@ html {
   font-size: 0.9rem;
 }
 
+/* Small pulsing dot indicator */
 .pulse-dot {
   width: 8px;
   height: 8px;
   background-color: var(--danger-color);
   border-radius: 50%;
   margin-right: 8px;
-  animation: pulse 1.5s infinite;
+  animation: pulse 1.5s infinite;     /* Slower pulse than recording indicator */
 }
 
+/* Transcript header with word count */
 .transcript-header {
   margin-bottom: 10px;
   color: var(--text-secondary);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color); /* Separator line */
   padding-bottom: 5px;
 }
 
+/* Placeholder text styling */
 .placeholder-text {
   color: var(--text-secondary);
-  font-style: italic;
+  font-style: italic;                 /* Italics to indicate placeholder */
+}
+
+/* ============================================================================
+   ACHIEVEMENT BADGE SYSTEM
+   ============================================================================ */
+
+/* Badge container */
+.badges-container {
+  background-color: var(--input-bg);  /* Subtle background */
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Badge section heading */
+.badges-container h4 {
+  text-align: center;
+  margin-top: 0;
+  color: var(--text-secondary);
+}
+
+/* Grid layout for badges */
+.badges-grid {
+  display: flex;
+  justify-content: center;            /* Center badges horizontally */
+  flex-wrap: wrap;                    /* Allow wrapping on small screens */
+  gap: 15px;                         /* Space between badges */
+}
+
+/* Individual badge styling */
+.badge {
+  display: flex;
+  flex-direction: column;             /* Stack emoji and text vertically */
+  align-items: center;
+  background-color: var(--card-bg);
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px var(--shadow-color); /* Subtle elevation */
+  min-width: 120px;                   /* Consistent badge width */
+  text-align: center;
+}
+
+/* Badge emoji */
+.badge-emoji {
+  font-size: 2.5rem;                 /* Large emoji for visual impact */
+}
+
+/* Badge name text */
+.badge-name {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-top: 5px;                   /* Space between emoji and text */
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
+/* Tablet and small desktop adjustments */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;                   /* Reduce body padding */
+  }
+  
+  .app-container {
+    margin: 10px;                    /* Reduce container margin */
+    padding: 1.5rem;                 /* Reduce container padding */
+  }
+  
+  .dark-mode-toggle {
+    top: 15px;                       /* Adjust toggle position */
+    right: 15px;
+    font-size: 1.3rem;               /* Slightly smaller toggle */
+  }
+  
+  .results-grid {
+    grid-template-columns: 1fr;      /* Single column on tablets */
+    gap: 15px;                       /* Reduced gap */
+  }
+  
+  .modes-container {
+    flex-wrap: wrap;                 /* Allow mode buttons to wrap */
+  }
+  
+  .mode-button {
+    flex: 1;                         /* Equal width buttons */
+    min-width: 120px;                /* Minimum button width */
+  }
+}
+
+/* Mobile phone adjustments */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 1rem;                   /* Further reduce padding */
+  }
+  
+  .metric-value {
+    font-size: 1.5rem;               /* Smaller metric values */
+  }
+  
+  .record-button {
+    width: 100%;                     /* Full-width record button */
+    padding: 15px;                   /* Larger touch target */
+  }
+}
+
+/* ============================================================================
+   ACCESSIBILITY & PERFORMANCE
+   ============================================================================ */
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;      /* Disable animations */
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;     /* Disable transitions */
+    scroll-behavior: auto !important;           /* Disable smooth scroll */
+  }
 }
