@@ -1,98 +1,24 @@
-# ==========================
-# OS Files
-# ==========================
-# Windows
-Thumbs.db
-Desktop.ini
-$RECYCLE.BIN/
-ehthumbs.db
-*.lnk
-
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Linux
-*~
-
-# ==========================
-# IDE / Editor
-# ==========================
-# VSCode
-.vscode/
-.history/
-*.code-workspace
-
-# JetBrains (IntelliJ, PyCharm, CLion, etc.)
-.idea/
-*.iml
-*.iws
-*.ipr
-out/
-
-# Eclipse
-.project
-.settings/
-.metadata/
-bin/
-
-# ==========================
-# Build / dependency directories
-# ==========================
-# Node.js / JavaScript
-node_modules/
+# Logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-dist/
-build/
+pnpm-debug.log*
+lerna-debug.log*
 
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+node_modules
+dist
+dist-ssr
+*.local
 
-# Java / Gradle / Maven
-target/
-*.class
-*.war
-*.ear
-.gradle/
-build/
-
-# C / C++ / CMake
-*.o
-*.obj
-*.out
-*.a
-CMakeFiles/
-CMakeCache.txt
-
-# Rust
-/target/
-
-# Go
-/bin/
-/pkg/
-
-# Ruby
-*.gem
-.bundle/
-log/
-tmp/
-coverage/
-*.rbc
-
-# ==========================
-# Environment / config
-# ==========================
-.env
-.env.local
-.env.*.local
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
