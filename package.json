@@ -16,8 +16,7 @@
     "@google/generative-ai": "^0.24.1",
     "prop-types": "^15.8.1",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "react-voice-visualizer": "^2.0.8"
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
