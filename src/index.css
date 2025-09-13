@@ -1,626 +1,228 @@
 /* ============================================================================
-   PITCH PERFECT AI - MAIN STYLESHEET
-   ============================================================================
-   This file contains all the styles for the Pitch Perfect AI application.
-   It uses CSS custom properties (variables) for consistent theming and 
-   supports both light and dark modes.
+   PITCH PERFECT AI - GAMER UI / SCI-FI THEME (CORRECTED)
    ============================================================================ */
 
-/* ============================================================================
-   COLOR PALETTE & THEME VARIABLES
-   ============================================================================ */
+/* 1. FONT IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
-/* Define the color palette for both light and dark modes */
+
+/* 2. THEME & COLOR PALETTE */
 :root {
-  /* Light mode colors (default theme) */
-  --bg-color: #f0f2f5;              /* Main background color */
-  --card-bg: #ffffff;               /* Card and container backgrounds */
-  --text-color: #1c1e21;            /* Primary text color */
-  --text-secondary: #606770;        /* Secondary text (labels, hints) */
-  --border-color: #e0e0e0;          /* Borders and dividers */
-  --input-bg: #f9f9f9;             /* Input field backgrounds */
-  
-  /* Primary colors for buttons and highlights */
-  --primary-color: #007bff;         /* Main brand color (blue) */
-  --primary-hover: #0056b3;         /* Darker blue for hover states */
-  
-  /* Status colors for feedback and alerts */
-  --danger-color: #dc3545;          /* Error and stop button color */
-  --danger-hover: #a72836;          /* Darker red for hover states */
-  --success-color: #28a745;         /* Success messages */
-  --success-bg: #d4edda;           /* Success background */
-  --warning-color: #ffc107;         /* Warning messages */
-  --warning-bg: #fff3cd;           /* Warning background */
-  --info-color: #17a2b8;           /* Info messages */
-  --info-bg: #d1ecf1;             /* Info background */
-  
-  /* Feedback card backgrounds */
-  --positive-bg: #e9f5e9;          /* Positive feedback background */
-  --positive-border: #4caf50;       /* Green border for positive feedback */
-  --improvement-bg: #fff4e5;        /* Improvement feedback background */
-  --improvement-border: #ff9800;    /* Orange border for improvement feedback */
-  
-  /* Mode selection button colors */
-  --mode-button-bg: #e9ecef;        /* Default mode button background */
-  --mode-button-color: #495057;     /* Mode button text color */
-  --mode-button-border: #dee2e6;    /* Mode button border */
-  --mode-button-hover: #dee2e6;     /* Mode button hover background */
-  
-  /* Shadow and visual effects */
-  --shadow-color: rgba(0, 0, 0, 0.08); /* Subtle shadow for cards */
-  
-  /* Animation timing constants */
-  --transition-fast: 0.15s;         /* Quick transitions */
-  --transition-normal: 0.3s;        /* Standard transitions */
-  --transition-slow: 0.5s;          /* Slow transitions for emphasis */
+  /* LIGHT MODE (Default High-Contrast Theme) */
+  --font-main: 'Russo One', sans-serif;
+  --bg-color: #ffffff;
+  --card-bg: #f7f7f8;
+  --text-color: #1a1a1a;
+  --text-secondary: #5b5f66;
+  --border-color: #d8dbe0;
+  --input-bg: #f0f2f5;
+  --primary-glow: #0056b3;
+  --danger-glow: #c900c6;
+  --positive-bg: rgba(0, 123, 255, 0.1);
+  --improvement-bg: rgba(220, 53, 69, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --youtube-red: #FF0000;
 }
 
-/* Dark mode color overrides */
 .dark-mode {
-  --bg-color: #121212;              /* Dark background */
-  --card-bg: #1e1e1e;              /* Dark card backgrounds */
-  --text-color: #e4e6eb;           /* Light text on dark background */
-  --text-secondary: #b0b3b8;       /* Dimmed text for secondary content */
-  --border-color: #3a3b3c;         /* Dark borders */
-  --input-bg: #242526;             /* Dark input backgrounds */
-  
-  /* Adjusted primary colors for dark mode */
-  --primary-color: #4295ef;        /* Brighter blue for visibility */
-  --primary-hover: #2d7dd2;        /* Hover state for dark mode */
-  
-  /* Dark mode status colors */
-  --danger-color: #e05260;         /* Softer red for dark backgrounds */
-  --danger-hover: #c43e4a;         /* Darker red for hover */
-  
-  /* Dark mode feedback backgrounds */
-  --positive-bg: #1e361f;          /* Dark green background */
-  --improvement-bg: #3c2f20;       /* Dark orange background */
-  --negative-bg: #2d1f1f;          /* Dark red background for negative feedback */
-  
-  /* Dark mode button colors */
-  --mode-button-bg: #3a3b3c;       /* Dark button background */
-  --mode-button-color: #e4e6eb;    /* Light text on dark buttons */
-  --mode-button-border: #3a3b3c;   /* Dark button border */
-  --mode-button-hover: #525354;    /* Lighter hover state */
-  
-  /* Enhanced shadow for dark mode */
+  /* DARK MODE (Gamer Theme Override) */
+  --bg-color: #0d0f1f;
+  --card-bg: #1d213a;
+  --text-color: #e0e1e6;
+  --text-secondary: #8a93b4;
+  --border-color: rgba(0, 246, 255, 0.2);
+  --input-bg: #131628;
+  --primary-glow: #00f6ff;
+  --danger-glow: #ff00f8;
+  --positive-bg: rgba(0, 246, 255, 0.1);
+  --improvement-bg: rgba(255, 0, 248, 0.1);
   --shadow-color: rgba(0, 0, 0, 0.3);
-  
-  /* Dark mode versions of status backgrounds */
-  --success-bg: #1e3a1e;           /* Dark success background */
-  --warning-bg: #3d3a1e;           /* Dark warning background */
-  --info-bg: #1e2e3a;             /* Dark info background */
 }
 
-/* ============================================================================
-   GLOBAL STYLES & LAYOUT
-   ============================================================================ */
 
-/* Base body styling with system font stack */
+/* 3. GLOBAL & LAYOUT STYLES (with background grid) */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--bg-color);   /* Uses theme variable */
-  color: var(--text-color);            /* Uses theme variable */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   margin: 0;
   padding: 20px;
-  display: flex;                       /* Center content horizontally */
-  justify-content: center;
-  align-items: flex-start;             /* Align to top */
-  min-height: 100vh;                   /* Full viewport height */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transitions */
-}
-
-/* Main application container */
-.app-container {
-  width: 100%;
-  max-width: 700px;                    /* Limit width for readability */
-  margin: 20px;
-  padding: 2rem;
-  background-color: var(--card-bg);    /* Card background */
-  border-radius: 12px;                 /* Rounded corners */
-  box-shadow: 0 6px 20px var(--shadow-color); /* Elevated appearance */
-  position: relative;                  /* For positioning dark mode toggle */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Theme transitions */
-}
-
-/* Header section styling */
-header {
-  text-align: center;
-  border-bottom: 1px solid var(--border-color); /* Separator line */
-  padding-bottom: 20px;
-  margin-bottom: 30px;
-}
-
-/* Main content area - stacked layout */
-main {
   display: flex;
-  flex-direction: column;              /* Stack components vertically */
-  gap: 40px;                          /* Space between sections */
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
 }
 
-/* ============================================================================
-   COMPONENT STYLES
-   ============================================================================ */
-
-/* Application logo styling */
-.app-logo {
-  max-width: 300px;                   /* Responsive logo size */
-  margin-bottom: 1rem;
+body::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(var(--border-color) 1px, transparent 1px),
+    linear-gradient(to right, var(--border-color) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: pan-grid 20s linear infinite;
+  z-index: -1;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+.dark-mode body::before {
+  opacity: 0.5;
+}
+.light-mode body::before {
+  opacity: 1;
 }
 
-/* Dark mode toggle button (top-right corner) */
+@keyframes pan-grid { from { background-position: 0 0; } to { background-position: 40px 40px; } }
+
+.app-container {
+  font-family: var(--font-main);
+  width: 100%;
+  max-width: 680px;
+  margin: 40px 20px;
+  padding: 2.5rem;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 40px var(--shadow-color), inset 0 0 20px var(--shadow-color);
+  position: relative;
+  transition: all 0.3s ease;
+}
+.dark-mode .app-container {
+  background: radial-gradient(circle at top center, rgba(29, 33, 58, 0.8), var(--card-bg));
+}
+
+header { text-align: center; padding-bottom: 25px; margin-bottom: 35px; }
+main { display: flex; flex-direction: column; gap: 40px; }
+
+/* 4. COMPONENT STYLES */
+.app-logo { max-width: 250px; margin-bottom: 1rem; filter: drop-shadow(0 0 10px var(--primary-glow)); }
+.light-mode .app-logo { filter: none; }
+
 .dark-mode-toggle {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;                  /* Emoji size */
-  cursor: pointer;
-  padding: 5px;
-  border-radius: 50%;                 /* Circular button */
-  background-color: var(--input-bg);  /* Subtle background */
+  top: 25px; right: 25px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
   color: var(--text-color);
-  box-shadow: 0 2px 5px var(--shadow-color); /* Slight elevation */
-  transition: transform 0.2s, background-color 0.3s ease; /* Hover and theme transitions */
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s ease;
 }
-
-/* Dark mode toggle hover effect */
 .dark-mode-toggle:hover {
-  transform: scale(1.1);              /* Slight grow on hover */
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 0 15px var(--primary-glow);
 }
 
-/* Section headings */
 .recorder-container h2, .analysis-container h2 {
   margin-top: 0;
-  font-size: 1.5rem;
-  color: var(--text-color);           /* Uses theme variable */
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 25px;
+  text-shadow: 0 0 5px var(--primary-glow);
+}
+.light-mode .recorder-container h2, .light-mode .analysis-container h2 {
+  text-shadow: none;
 }
 
-/* Live transcript display box */
 .transcript-box {
   border: 1px solid var(--border-color);
-  padding: 15px;
-  min-height: 120px;                  /* Minimum height for empty state */
-  border-radius: 6px;
-  background-color: var(--input-bg);  /* Subtle background */
-  line-height: 1.5;                   /* Readable line spacing */
-  color: var(--text-secondary);       /* Secondary text color */
-}
-
-/* ============================================================================
-   BUTTON STYLES
-   ============================================================================ */
-
-/* Base record button styling */
-.record-button {
-  padding: 12px 24px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  transition: background-color 0.2s ease, transform 0.1s ease; /* Smooth interactions */
-}
-
-/* Button press effect */
-.record-button:active {
-  transform: scale(0.98);             /* Slight shrink when pressed */
-}
-
-/* Start recording button (blue) */
-.start-button {
-  background-color: var(--primary-color);
-}
-.start-button:hover {
-  background-color: var(--primary-hover);
-}
-
-/* Stop recording button (red) */
-.stop-button {
-  background-color: var(--danger-color);
-}
-.stop-button:hover {
-  background-color: var(--danger-hover);
-}
-
-/* Pulsing animation for active recording */
-.stop-button.recording {
-  animation: pulse 1.5s infinite;
-}
-
-/* Mode selection container */
-.modes-container {
-  display: flex;
-  justify-content: center;            /* Center the mode buttons */
-  gap: 10px;                         /* Space between buttons */
-  margin-bottom: 20px;
-}
-
-/* Individual mode selection buttons */
-.mode-button {
-  padding: 8px 16px;
-  font-size: 0.9rem;
-  background-color: var(--mode-button-bg);
-  color: var(--mode-button-color);
-  border: 1px solid var(--mode-button-border);
-  border-radius: 20px;               /* Pill-shaped buttons */
-  cursor: pointer;
-  transition: all 0.2s ease;         /* Smooth hover transitions */
-}
-
-/* Mode button hover effect */
-.mode-button:hover {
-  background-color: var(--mode-button-hover);
-}
-
-/* Active/selected mode button */
-.mode-button.active {
-  background-color: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
-  font-weight: bold;                 /* Emphasize selection */
-}
-
-/* Disabled mode button (during recording) */
-.mode-button:disabled {
-  opacity: 0.6;                      /* Faded appearance */
-  cursor: not-allowed;               /* Indicate non-interactive */
-}
-
-/* ============================================================================
-   ACCESSIBILITY - FOCUS STATES
-   ============================================================================ */
-
-/* Focus indicators for keyboard navigation */
-.record-button:focus,
-.mode-button:focus,
-.dark-mode-toggle:focus {
-  outline: 2px solid var(--primary-color); /* Visible focus ring */
-  outline-offset: 2px;               /* Space around element */
-}
-
-/* Enhanced focus for mode buttons */
-.mode-button:focus {
-  box-shadow: 0 0 0 3px rgba(66, 149, 239, 0.3); /* Glow effect */
-}
-
-/* ============================================================================
-   ANALYSIS RESULTS DISPLAY
-   ============================================================================ */
-
-/* Grid layout for metric cards */
-.results-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive columns */
-  gap: 20px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* Base styling for metric and feedback cards */
-.metric-card, .feedback-card {
-  background-color: var(--card-bg);
-  padding: 20px;
+  padding: 15px 20px;
+  min-height: 120px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px var(--shadow-color); /* Subtle elevation */
-  border: 1px solid var(--border-color);
-  transition: background-color 0.3s ease, border-color 0.3s ease; /* Theme transitions */
-}
-
-/* Card headings */
-.metric-card h4, .feedback-card h4 {
-  margin: 0 0 10px 0;
-  color: var(--text-secondary);       /* Subtle heading color */
-}
-
-/* Large metric values (scores, counts) */
-.metric-value {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--primary-color);        /* Highlight important numbers */
-  margin: 0;
-}
-
-/* Left-aligned feedback cards */
-.feedback-card {
-  text-align: left;                   /* Better for reading paragraphs */
-}
-
-/* Positive feedback styling (green accent) */
-.positive-feedback {
-  background-color: var(--positive-bg);
-  border-left: 5px solid var(--positive-border); /* Colored accent bar */
-}
-
-/* Improvement feedback styling (orange accent) */
-.improvement-feedback {
-  background-color: var(--improvement-bg);
-  border-left: 5px solid var(--improvement-border);
-}
-
-/* Negative feedback styling (red accent) */
-.negative-feedback {
-  background-color: #ffeaea;          /* Light red background */
-  border-left: 5px solid var(--danger-color);
-}
-
-/* Dark mode negative feedback */
-.dark-mode .negative-feedback {
-  background-color: var(--negative-bg);
-}
-
-/* ============================================================================
-   LOADING STATES & MESSAGES
-   ============================================================================ */
-
-/* Common styling for message containers */
-.loading-message, .placeholder-message, .error-message {
-  text-align: center;
-  color: var(--text-secondary);
-  padding: 40px;
   background-color: var(--input-bg);
-  border-radius: 8px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-size: 1rem;
 }
 
-/* Error message specific styling */
-.error-message {
-  color: var(--danger-color);         /* Red text for errors */
-  border: 2px solid var(--danger-color); /* Red border for emphasis */
-}
-
-/* Error message buttons */
-.error-message button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: var(--danger-color);
-  color: white;
-  border: none;
-  border-radius: 6px;
+/* 5. BUTTONS & INTERACTIVITY */
+.record-controls { text-align: center; margin-bottom: 15px; }
+.record-button {
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  font-family: var(--font-main);
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
-}
-
-/* Error button hover effect */
-.error-message button:hover {
-  background-color: var(--danger-hover);
-}
-
-/* Alternative error button style (outline) */
-.error-message button {
-  margin-left: 10px;
-  padding: 5px 10px;
-  background: none;
-  border: 1px solid var(--danger-color);
-  color: var(--danger-color);
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.8rem;
-}
-
-/* Alternative error button hover */
-.error-message button:hover {
-  background-color: var(--danger-color);
-  color: white;
-}
-
-/* ============================================================================
-   ANIMATIONS & VISUAL EFFECTS
-   ============================================================================ */
-
-/* Pulsing animation for recording indicators */
-@keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.7; }               /* Fade to 70% opacity */
-  100% { opacity: 1; }                /* Back to full opacity */
-}
-
-/* Spinning animation for loading spinner */
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* ============================================================================
-   DATA VISUALIZATION
-   ============================================================================ */
-
-/* Progress bar container */
-.metric-bar {
-  background-color: var(--border-color); /* Gray background */
-  border-radius: 4px;
-  height: 8px;
-  overflow: hidden;                   /* Hide overflow for rounded corners */
-  margin-top: 10px;
-}
-
-/* Progress bar fill */
-.metric-fill {
-  background-color: var(--primary-color);
-  height: 100%;
-  border-radius: 4px;
-  transition: width 0.5s ease-in-out; /* Smooth progress animation */
-  will-change: width;                 /* Optimize for animation */
-}
-
-/* Loading spinner */
-.spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid var(--border-color);
-  border-top-color: var(--primary-color); /* Colored top for spinning effect */
-  border-radius: 50%;                 /* Perfect circle */
-  animation: spin 1s linear infinite; /* Continuous spinning */
-  margin: 0 auto 15px auto;          /* Center horizontally */
-  will-change: transform;             /* Optimize for animation */
-}
-
-/* ============================================================================
-   RECORDING STATUS INDICATORS
-   ============================================================================ */
-
-/* Recording indicator emoji */
-.recording-indicator {
-  margin-right: 8px;
-  animation: pulse 1s infinite;       /* Pulsing red dot */
-}
-
-/* Recording status message */
-.recording-status {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-}
-
-/* Small pulsing dot indicator */
-.pulse-dot {
-  width: 8px;
-  height: 8px;
-  background-color: var(--danger-color);
-  border-radius: 50%;
-  margin-right: 8px;
-  animation: pulse 1.5s infinite;     /* Slower pulse than recording indicator */
-}
-
-/* Transcript header with word count */
-.transcript-header {
-  margin-bottom: 10px;
-  color: var(--text-secondary);
-  border-bottom: 1px solid var(--border-color); /* Separator line */
-  padding-bottom: 5px;
-}
-
-/* Placeholder text styling */
-.placeholder-text {
-  color: var(--text-secondary);
-  font-style: italic;                 /* Italics to indicate placeholder */
-}
-
-/* ============================================================================
-   ACHIEVEMENT BADGE SYSTEM
-   ============================================================================ */
-
-/* Badge container */
-.badges-container {
-  background-color: var(--input-bg);  /* Subtle background */
-  border: 1px solid var(--border-color);
+  color: #fff;
+  border: 1px solid;
   border-radius: 8px;
-  padding: 20px;
-  margin-top: 20px;
+  transition: all 0.2s ease;
+  min-width: 220px;
+  text-transform: uppercase;
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+}
+.record-button:hover { transform: scale(1.05); box-shadow: 0 0 20px; }
+.start-button { background: var(--primary-glow); border-color: var(--primary-glow); color: var(--bg-color); text-shadow: 0 0 10px var(--primary-glow); }
+.start-button:hover { box-shadow: 0 0 20px var(--primary-glow); }
+.stop-button { background: var(--danger-glow); border-color: var(--danger-glow); color: var(--bg-color); text-shadow: 0 0 10px var(--danger-glow); }
+.stop-button:hover { box-shadow: 0 0 20px var(--danger-glow); }
+.stop-button.recording { animation: pulse-glow 1.5s infinite; }
+.light-mode .start-button, .light-mode .stop-button { text-shadow: none; color: #fff; }
+
+.modes-container { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; }
+.mode-button {
+  padding: 8px 16px; font-size: 0.9rem; font-family: var(--font-main);
+  background-color: transparent; color: var(--text-secondary);
+  border: 1px solid var(--border-color); border-radius: 20px;
+  cursor: pointer; transition: all 0.2s ease;
+}
+.mode-button:hover { border-color: var(--primary-glow); color: var(--primary-glow); }
+.mode-button.active { background: var(--primary-glow); color: var(--bg-color); border-color: var(--primary-glow); }
+.mode-button:disabled { opacity: 0.5; cursor: not-allowed; }
+.light-mode .mode-button.active { color: #fff; }
+
+/* 6. ANALYSIS & FEEDBACK CARDS */
+.results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 25px; }
+.metric-card, .feedback-card, .youtube-recommendation, .badges-container {
+  background-color: var(--input-bg);
+  padding: 20px; border-radius: 12px; border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+.metric-card:hover { transform: translateY(-4px); border-color: var(--primary-glow); box-shadow: 0 0 15px var(--primary-glow); }
+.metric-card h4, .feedback-card h4, .youtube-recommendation h4, .badges-container h4 {
+  margin: 0 0 10px 0; font-weight: 500; font-size: 1rem;
+  color: var(--text-secondary); text-transform: uppercase;
+}
+.metric-value { font-size: 2.5rem; color: var(--text-color); margin: 0; text-shadow: 0 0 8px var(--primary-glow); }
+.light-mode .metric-value { text-shadow: none; }
+
+.feedback-card { line-height: 1.6; }
+.positive-feedback { border-left: 4px solid var(--primary-glow); background: var(--positive-bg); }
+.improvement-feedback { border-left: 4px solid var(--danger-glow); background: var(--improvement-bg); }
+.loading-message, .placeholder-message, .error-message { text-align: center; color: var(--text-secondary); padding: 40px; background-color: var(--input-bg); border-radius: 12px; }
+.spinner { width: 40px; height: 40px; border: 4px solid var(--border-color); border-top-color: var(--primary-glow); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 15px auto; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 5px var(--danger-glow); }
+  50% { box-shadow: 0 0 20px var(--danger-glow); }
+  100% { box-shadow: 0 0 5px var(--danger-glow); }
 }
 
-/* Badge section heading */
-.badges-container h4 {
-  text-align: center;
-  margin-top: 0;
-  color: var(--text-secondary);
+/* 7. BADGES & YOUTUBE SECTION */
+.youtube-recommendation, .badges-container { margin-top: 25px; }
+.youtube-link-button {
+  display: inline-block; padding: 10px 20px; background-color: var(--youtube-red);
+  color: white; text-decoration: none; border-radius: 6px;
+  font-weight: 700; font-family: var(--font-main);
+  transition: all 0.2s ease;
 }
+.youtube-link-button:hover { transform: scale(1.05); box-shadow: 0 0 15px var(--youtube-red); }
+.badges-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
+.badge { display: flex; flex-direction: column; align-items: center; gap: 5px; background-color: var(--card-bg); padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border-color); min-width: 120px; text-align: center; }
+.badge-emoji { font-size: 2.5rem; }
+.badge-name { font-size: 1rem; font-weight: 500; }
 
-/* Grid layout for badges */
-.badges-grid {
-  display: flex;
-  justify-content: center;            /* Center badges horizontally */
-  flex-wrap: wrap;                    /* Allow wrapping on small screens */
-  gap: 15px;                         /* Space between badges */
-}
-
-/* Individual badge styling */
-.badge {
-  display: flex;
-  flex-direction: column;             /* Stack emoji and text vertically */
-  align-items: center;
-  background-color: var(--card-bg);
-  padding: 10px 15px;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px var(--shadow-color); /* Subtle elevation */
-  min-width: 120px;                   /* Consistent badge width */
-  text-align: center;
-}
-
-/* Badge emoji */
-.badge-emoji {
-  font-size: 2.5rem;                 /* Large emoji for visual impact */
-}
-
-/* Badge name text */
-.badge-name {
-  font-size: 0.9rem;
-  font-weight: bold;
-  margin-top: 5px;                   /* Space between emoji and text */
-}
-
-/* ============================================================================
-   RESPONSIVE DESIGN
-   ============================================================================ */
-
-/* Tablet and small desktop adjustments */
-@media (max-width: 768px) {
-  body {
-    padding: 10px;                   /* Reduce body padding */
-  }
-  
-  .app-container {
-    margin: 10px;                    /* Reduce container margin */
-    padding: 1.5rem;                 /* Reduce container padding */
-  }
-  
-  .dark-mode-toggle {
-    top: 15px;                       /* Adjust toggle position */
-    right: 15px;
-    font-size: 1.3rem;               /* Slightly smaller toggle */
-  }
-  
-  .results-grid {
-    grid-template-columns: 1fr;      /* Single column on tablets */
-    gap: 15px;                       /* Reduced gap */
-  }
-  
-  .modes-container {
-    flex-wrap: wrap;                 /* Allow mode buttons to wrap */
-  }
-  
-  .mode-button {
-    flex: 1;                         /* Equal width buttons */
-    min-width: 120px;                /* Minimum button width */
-  }
-}
-
-/* Mobile phone adjustments */
-@media (max-width: 480px) {
-  .app-container {
-    padding: 1rem;                   /* Further reduce padding */
-  }
-  
-  .metric-value {
-    font-size: 1.5rem;               /* Smaller metric values */
-  }
-  
-  .record-button {
-    width: 100%;                     /* Full-width record button */
-    padding: 15px;                   /* Larger touch target */
-  }
-}
-
-/* ============================================================================
-   ACCESSIBILITY & PERFORMANCE
-   ============================================================================ */
-
-/* Smooth scrolling for better UX */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Respect user's motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;      /* Disable animations */
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;     /* Disable transitions */
-    scroll-behavior: auto !important;           /* Disable smooth scroll */
-  }
+/* 8. RESPONSIVE DESIGN */
+@media (max-width: 768px) { .results-grid { grid-template-columns: 1fr; } }
+@media (min-width: 800px) {
+  .app-container { max-width: 1200px; }
+  main { flex-direction: row; align-items: flex-start; }
+  .recorder-container, .analysis-container { flex: 1; }
 }

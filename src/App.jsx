@@ -1,5 +1,5 @@
 // Main App component - Entry point for Pitch Perfect AI application
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Recorder from './components/Recorder';
 import Analysis from './components/Analysis';
 import DarkModeToggle from './components/DarkModeToggle';
@@ -21,6 +21,22 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);   // Loading state for UI feedback
   const [isRecording, setIsRecording] = useState(false); // Recording state from Recorder
   const [error, setError] = useState(null);            // Error messages for user feedback
+
+  // --- DARK MODE ---
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode !== null) return savedMode === 'true';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark-mode');
+    } else {
+      document.documentElement.classList.remove('dark-mode');
+    }
+    localStorage.setItem('darkMode', String(isDarkMode));
+  }, [isDarkMode]);
 
   /**
    * Main function that processes speech transcript and generates AI analysis
