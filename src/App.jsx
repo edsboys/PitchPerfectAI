@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Recorder from './components/Recorder';
 import Analysis from './components/Analysis';
 import './index.css';
+import logo from './assets/logo.png'; // <-- 1. IMPORT THE LOGO
 
-// This is the new AI setup part
 import { GoogleGenerativeAI } from "@google/generative-ai";
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(API_KEY);
@@ -12,13 +12,12 @@ function App() {
   const [analysis, setAnalysis] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  // This function will be called by the Recorder when a transcript is ready
   const handleRecordingComplete = async (transcript) => {
     if (!transcript) {
       alert("Could not hear any speech. Please try again.");
       return;
     }
-
+    
     setIsLoading(true);
     setAnalysis(null);
 
@@ -30,8 +29,7 @@ function App() {
       const result = await model.generateContent(prompt);
       const response = await result.response;
       const text = response.text();
-
-      // Clean up the text to make sure it's valid JSON
+      
       const cleanedJson = text.replace(/```json/g, '').replace(/```/g, '');
       const parsedAnalysis = JSON.parse(cleanedJson);
       setAnalysis(parsedAnalysis);
@@ -47,13 +45,11 @@ function App() {
   return (
     <div className="app-container">
       <header>
-        <h1>Pitch Perfect AI 🎙️</h1>
-        <p>Your Personal Public Speaking Coach</p>
+        {/* 2. DISPLAY THE LOGO INSTEAD OF THE OLD TEXT */}
+        <img src={logo} alt="Pitch Perfect AI Logo" className="app-logo" />
       </header>
       <main>
-        {/* We pass the handleRecordingComplete function to the Recorder */}
         <Recorder onRecordingComplete={handleRecordingComplete} />
-        {/* We pass the analysis results and loading state to the Analysis component */}
         <Analysis analysisResult={analysis} isLoading={isLoading} />
       </main>
     </div>

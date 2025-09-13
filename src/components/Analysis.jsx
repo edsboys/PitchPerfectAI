@@ -1,8 +1,12 @@
+// src/components/Analysis.jsx
 import React from 'react';
+import useTypewriter from './useTypewriter'; // Import our new hook
 
-// The component now accepts props: 'analysisResult' and 'isLoading'
 function Analysis({ analysisResult, isLoading }) {
-  // If the AI is thinking, show a loading message
+  // Use the hook for our feedback text
+  const positiveFeedbackText = useTypewriter(analysisResult?.positiveFeedback || '', 20);
+  const improvementSuggestionText = useTypewriter(analysisResult?.improvementSuggestion || '', 20);
+
   if (isLoading) {
     return (
       <div className="analysis-container">
@@ -12,7 +16,6 @@ function Analysis({ analysisResult, isLoading }) {
     );
   }
 
-  // If there's no result yet, show the placeholder
   if (!analysisResult) {
     return (
       <div className="analysis-container">
@@ -22,7 +25,6 @@ function Analysis({ analysisResult, isLoading }) {
     );
   }
 
-  // If we have a result, display it
   return (
     <div className="analysis-container">
       <h2>2. AI Analysis</h2>
@@ -42,11 +44,11 @@ function Analysis({ analysisResult, isLoading }) {
       </div>
       <div className="feedback-card positive-feedback">
         <h4>👍 What Went Well</h4>
-        <p>{analysisResult.positiveFeedback}</p>
+        <p>{positiveFeedbackText}</p> {/* Use the animated text */}
       </div>
       <div className="feedback-card improvement-feedback">
         <h4>💡 Improvement Suggestion</h4>
-        <p>{analysisResult.improvementSuggestion}</p>
+        <p>{improvementSuggestionText}</p> {/* Use the animated text */}
       </div>
     </div>
   );

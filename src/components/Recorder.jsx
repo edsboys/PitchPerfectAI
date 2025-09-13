@@ -36,7 +36,7 @@ function Recorder({ onRecordingComplete }) {
     <div className="recorder-container">
       <h2>1. Record Your Pitch</h2>
       <button onClick={handleToggleRecording} className="record-button">
-        {isRecording ? 'Stop Recording' : 'Start Recording'}
+        {isRecording ? 'Stop Recording' : 'Stop Recording'}
       </button>
       <div className="transcript-box">
         {transcript ? transcript : <p>Your live transcript will appear here...</p>}

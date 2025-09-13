@@ -1,68 +1,143 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* Global Styles & Fonts */
 body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #1c1e21;
   margin: 0;
+  padding: 20px;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  justify-content: center;
+  align-items: flex-start;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Logo Styles */
+.app-logo {
+  max-width: 300px; /* Adjust the size as you like */
+  margin-bottom: 1rem;
 }
 
-button {
+/* Main App Container */
+.app-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 20px;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+header {
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+header p {
+  color: #606770;
+  font-size: 1rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* IMPROVEMENT: Adds space between Recorder and Analysis */
+}
+
+/* Recorder Component Styles */
+.recorder-container h2, .analysis-container h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.record-button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer; /* IMPROVEMENT: Changes cursor to a pointer */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  transition: background-color 0.2s ease, transform 0.1s ease; /* IMPROVEMENT: Smooth transition */
+}
+
+/* IMPROVEMENT: Interactive Button States */
+.record-button:hover {
+  background-color: #0056b3;
+}
+
+.record-button:active {
+  transform: scale(0.98);
+}
+
+.transcript-box {
+  border: 1px solid #ddd;
+  padding: 15px;
+  min-height: 120px;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Analysis Component Styles */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* IMPROVEMENT: Responsive columns */
+  gap: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.metric-card, .feedback-card {
+  background-color: #ffffff;
+  padding: 20px;
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* IMPROVEMENT: Adds depth */
+  border: 1px solid #e0e0e0;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.metric-card h4, .feedback-card h4 {
+  margin: 0 0 10px 0;
+  color: #606770;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+  margin: 0;
+}
+
+.feedback-card {
+  text-align: left;
+}
+
+.positive-feedback {
+  background-color: #e9f5e9;
+  border-left: 5px solid #4caf50;
+}
+
+.improvement-feedback {
+  background-color: #fff4e5;
+  border-left: 5px solid #ff9800;
+}
+
+/* Loading and Placeholder Messages */
+.loading-message, .placeholder-message {
+  text-align: center;
+  color: #606770;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
 }
