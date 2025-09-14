@@ -60,6 +60,10 @@ To get a local copy up and running, please follow the detailed instructions in t
 
 For instructions on how to use the application after setting it up, please refer to the **[USAGE.md](docs/USAGE.md)** file.
 
+Watch the full demo of the project here:  
+👉 [Hackathon Demo Video](https://drive.google.com/file/d/1AK8VmwYE0QNIkOdXhOlmPbs-VIUR1xSm/view?usp=sharing)
+
+
 ---
 
 ## 👤 Team
