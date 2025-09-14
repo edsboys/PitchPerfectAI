@@ -55,8 +55,8 @@ The application is designed to be simple and intuitive.
 
 ## 🎥 Demo
 Check out the demo files located in the `demo/` folder of this repository:
-- **[Demo Video](../demo/[your-video-file.mp4])**
-- **[Demo Presentation](../demo/[your-presentation-file.pptx])**
+- **[Demo Video](https://drive.google.com/file/d/1AK8VmwYE0QNIkOdXhOlmPbs-VIUR1xSm/view?usp=sharing)**
+- **[Demo Presentation](../demo/[/Pitch-Perfect-AI.pptx])**
 
 *(Note: Please replace the bracketed filenames with the actual names of your video and presentation files.)*
 
