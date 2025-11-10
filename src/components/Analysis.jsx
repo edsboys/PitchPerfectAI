@@ -9,10 +9,6 @@ function Analysis({ analysisResult, isLoading, error, onRetry }) {
     analysisResult?.positiveFeedback || 'Great job on your speech!', 
     30
   );
-  const negativeFeedbackText = useTypewriter(
-    analysisResult?.negativeFeedback || 'Consider working on your pacing and clarity.', 
-    30
-  );
   const improvementSuggestionText = useTypewriter(
     analysisResult?.improvementSuggestion || 'Practice speaking more slowly and clearly.', 
     50
@@ -96,12 +92,6 @@ function Analysis({ analysisResult, isLoading, error, onRetry }) {
       <div className="feedback-card positive-feedback">
         <h4>👍 What Went Well</h4>
         <p>{positiveFeedbackText}</p>
-      </div>
-      
-      {/* Areas for Improvement */}
-      <div className="feedback-card negative-feedback">
-        <h4>⚠️ Areas for Improvement</h4>
-        <p>{negativeFeedbackText}</p>
       </div>
       
       {/* Actionable Improvement Suggestion */}
